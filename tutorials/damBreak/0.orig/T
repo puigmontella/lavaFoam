@@ -1,0 +1,89 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+T_env 293;
+fluidDensity  1000;
+Pr 10;
+cp  4190;
+internalField uniform $T_env;
+
+
+//  type  exprMixed;
+//  value $internalField;
+//  variables " Tinf = $T_env ; rho = $fluidDensity ; cp = $cp ; DT =1/$Pr ; k = DT * rho * cp ; L_wall =0.002; k_wall =0.03 " ;
+//  valueExpr " Tinf " ;
+//  fractionExpr " 1.0/(1.0 + ( k /( mag(pos())) * (L_wall/k_wall)))";
+
+boundaryField
+{
+    leftWall
+    {
+      type            zeroGradient;
+
+      // type            codedMixed;
+      // name          customBC;
+      // refValue      uniform 0;
+      // refGradient uniform 0;
+      // valueFraction uniform 0;
+
+      // code
+      // #{
+
+
+            // Set gradient field for the boundary condition
+            // this->refGrad() = vector(1,0,0) & patch().nf();
+      //             this->refValue() = vector(1,0,0) & patch().nf();
+
+
+      //         #};
+
+        //       codeInclude
+        //       #{
+      //             #include "fvCFD.H"
+        //       #};
+
+      //         codeOptions
+        //       #{
+        //           -I$(LIB_SRC)/finiteVolume/lnInclude \
+        //           -I$(LIB_SRC)/meshTools/lnInclude
+        //       #};
+    }
+
+    rightWall
+    {
+        type            zeroGradient;
+    }
+
+    lowerWall
+    {
+        type            zeroGradient;
+    }
+
+    atmosphere
+    {
+        type            zeroGradient;
+    }
+
+    defaultFaces
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //
