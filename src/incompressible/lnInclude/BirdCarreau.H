@@ -1,1 +1,0 @@
-../viscosityModels/BirdCarreau/BirdCarreau.H

@@ -1,0 +1,81 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+T_env 293;
+fluidDensity  1000;
+Pr 10;
+cp  4190;
+internalField uniform $T_env;
+
+
+//  type  exprMixed;
+//  value $internalField;
+//  variables " Tinf = $T_env ; rho = $fluidDensity ; cp = $cp ; DT =1/$Pr ; k = DT * rho * cp ; L_wall =0.002; k_wall =0.03 " ;
+//  valueExpr " Tinf " ;
+//  fractionExpr " 1.0/(1.0 + ( k /( mag(pos())) * (L_wall/k_wall)))";
+
+boundaryField
+{
+    leftWall
+    {
+        type            zeroGradient;
+    }
+
+    rightWall
+    {
+//      type            fixedValue;
+  //    value           uniform 1;
+        type            zeroGradient;
+    
+}
+
+    bottom
+    {
+        type            zeroGradient;
+    }
+    tunnelWallsTop
+    {
+        type            zeroGradient;
+    }
+    topLava
+    {
+        type            zeroGradient;
+    }
+    atmosphere
+    {
+        type            zeroGradient;
+    }
+
+    tunnelWallsLeft
+    {
+      type            zeroGradient;
+    }
+
+
+    front
+    {
+      type            empty;
+    }
+    back
+    {
+      type            empty;
+    }
+}
+
+
+// ************************************************************************* //

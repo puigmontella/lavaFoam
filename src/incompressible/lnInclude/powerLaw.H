@@ -1,1 +1,0 @@
-../viscosityModels/powerLaw/powerLaw.H

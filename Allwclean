@@ -1,0 +1,13 @@
+#!/bin/sh
+cd "${0%/*}" || exit                            # Run from this directory
+#------------------------------------------------------------------------------
+set -x
+
+cd src/incompressible
+wclean
+cd ../addTImmiscibleIncompressibleTwoPhaseMixture
+wclean
+cd ../../applications/solvers/multiphase/interThermalFoam
+wclean
+
+#------------------------------------------------------------------------------

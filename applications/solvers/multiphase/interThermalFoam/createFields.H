@@ -47,6 +47,7 @@ volScalarField T
 
 Info<< "Reading transportProperties\n" << endl;
 addTImmiscibleIncompressibleTwoPhaseMixture mixture(U, phi);
+Info<< "aaaaaa transportProperties\n" << endl;
 
 volScalarField& alpha1(mixture.alpha1());
 volScalarField& alpha2(mixture.alpha2());
@@ -151,6 +152,8 @@ dimensionedScalar("T4mTenv4", pow4(dimTemperature), 0)
 //     )
 // );
 // Construct incompressible turbulence model
+Info<< "Reading turbulence\n" << endl;
+
 autoPtr<incompressible::turbulenceModel> turbulence
 (
     incompressible::turbulenceModel::New(U, phi, mixture)
@@ -203,3 +206,5 @@ mesh.setFluxRequired(alpha1.name());
 
 #include "createMRF.H"
 #include "createFvOptions.H"
+
+Info<< "Fields created!\n" << endl;
