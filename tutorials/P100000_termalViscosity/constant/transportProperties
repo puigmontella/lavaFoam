@@ -27,8 +27,8 @@ lava
 
     CostaMacedonioCoeffs
     {
-    nu_ref nu_ref [0 2 -1 0 0 0 0] 1.e4;
-    b b [0 0 0 -1 0 0 0] 0.005;
+    nu_ref nu_ref [0 2 -1 0 0 0 0] 1.e3;
+    b b [0 0 0 -1 0 0 0] 1e-2;
     // kslope kslope [0 2 -1 -1 0 0 0] 0.5;
     T_ref T_ref [0 0 0 1 0 0 0] 300;
     nuMin nuMin [0 2 -1 0 0 0 0] 1e2;
@@ -58,12 +58,11 @@ water
 
 
 sigma            0.07;
-
 emissivity    [0 0 0 0 0 0 0] 0.96;
 sigma_SB    [1 0 -3 -4 0 0 0] 5.67e-8;
 fractionalAreaExposed    [0 0 0 0 0 0 0] 1;
 T_env    [0 0 0 1 0 0 0] 293;
-heatTransferCoeff    [1 0 -3 -1 0 0 0] 2;
+heatTransferCoeff    [1 0 -3 -1 0 0 0] 20;
 
 
 

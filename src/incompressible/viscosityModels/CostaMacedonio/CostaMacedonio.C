@@ -55,6 +55,15 @@ Foam::viscosityModels::CostaMacedonio::calcNu() const
 {
 const volScalarField& T= U_.mesh().lookupObject<volScalarField>("T");
 
+
+// (
+//     const volScalarField& field
+// )
+// const
+{
+    return nu_ref_*exp(-b_*(T-T_ref_));
+}
+
 // volScalarField exp_term = exp(T * b_ );
     // volScalarField viscosity = nu_ref_ * T * b_ ;
 
@@ -87,7 +96,7 @@ const volScalarField& T= U_.mesh().lookupObject<volScalarField>("T");
 // return max(min(nu_ref_*exp(b_ * (T - T_ref_)),nuMax_),nuMin_);
 // return max(nuMin_,min(nuMax_,(b*nu_ref_*(T-T_ref_))));
 // return max(nuMin_,min(nuMax_,(k_*(T-Tbase_))*pow(max(dimensionedScalar("one", dimTime, 1.0)*strainRate(),dimensionedScalar("VSMALL", dimless, VSMALL)),n_.value() - scalar(1.0))));
-return max(nuMin_,min(nuMax_,(nu_ref_-nu_ref_*b_*(T-T_ref_))));
+// return max(nuMin_,min(nuMax_,(nu_ref_-nu_ref_*b_*(T-T_ref_))));
 }
 
 

@@ -9,6 +9,10 @@ runApplication blockMesh
 
 runApplication setFields
 
-runApplication $(getApplication)
+runApplication decomposePar
+
+# runApplication $(getApplication)
+
+mpirun -np 4  interThermalFoam -parallel > log&
 
 #------------------------------------------------------------------------------

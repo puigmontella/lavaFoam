@@ -24,11 +24,11 @@ regions
 (
     boxToCell
     {
-        box (80 0 0) (100 10 20);
+        box (70 0 0) (100 10 4);
         fieldValues
         (
             volScalarFieldValue alpha.lava 1
-            volScalarFieldValue T 800
+            volScalarFieldValue T 1200
         );
     }
 );
