@@ -101,7 +101,8 @@ public:
         // - Calculates convective source term , returned as volume fraction rate
         tmp<fvScalarMatrix>calcSourceForcedConvection(
           const volVectorField &U,
-          volScalarField &T
+          volScalarField &T,
+          volScalarField &ConvectiveCoeff
         );
 
         // Calculates the difference between the fourth powers

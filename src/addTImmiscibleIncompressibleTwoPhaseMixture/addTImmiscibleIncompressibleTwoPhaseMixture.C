@@ -127,7 +127,8 @@ return(
 Foam::tmp<Foam::fvScalarMatrix>
 Foam::addTImmiscibleIncompressibleTwoPhaseMixture::calcSourceForcedConvection(
 const volVectorField & U ,
-volScalarField & T
+volScalarField & T,
+volScalarField &ConvectiveCoeff
 )
 {
 Info << "calcSourceForcedConvection" << endl ;
@@ -159,6 +160,7 @@ forAll(WMatrix,cellI){
   }
 }
 dimensionedScalar dimCorr("dimCorr",dimMass/(dimTemperature*pow3(dimTime)*dimLength),1);
+ConvectiveCoeff=WMatrix*dimCorr;
 //
 // ConvectiveCoeff=WMatrix*dimCorr;
 /*activatethisincaseyoucreatethevolScalarField

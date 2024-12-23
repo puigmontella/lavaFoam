@@ -123,6 +123,19 @@ volScalarField RadiativeCoeff
 mesh,
 dimensionedScalar("RadiativeCoeff",dimMass/(pow4(dimTemperature)*pow3(dimTime)*dimLength), 0)
 );
+volScalarField ConvectiveCoeff
+(
+    IOobject
+    (
+      "ConvectiveCoeff",
+      runTime.timeName(),
+      mesh,
+      IOobject::NO_READ,
+      IOobject::AUTO_WRITE
+    ),
+mesh,
+dimensionedScalar("ConvectiveCoeff",dimMass/(dimTemperature*pow3(dimTime)*dimLength), 0)
+);
 
 volScalarField T4mTenv4
 (

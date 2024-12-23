@@ -1,0 +1,30 @@
+// -*- C++ -*-
+
+sampleSets
+{
+    type    sets;
+    libs    (sampling);
+
+    writeControl outputTime;
+
+    setFormat           raw;
+    interpolationScheme cellPointFace;
+
+    fields ( alpha.lava );
+
+    sets
+    {
+        gauge_1
+        {
+            type    face;
+            axis    x;
+            start   (0.0 5 0.5);
+            end     (100 5 0.5);
+            nPoints 100;
+        }
+
+    }
+}
+
+
+// ************************************************************************* //

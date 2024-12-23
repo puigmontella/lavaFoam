@@ -20,7 +20,7 @@ fvm::ddt(rhoCp,T)
 ==
 // Radiative term
 mixture.calcSourceRadiation(U ,T , RadiativeCoeff)
-+ mixture.calcSourceForcedConvection(U , T ) // Add the convective term
++ mixture.calcSourceForcedConvection(U , T, ConvectiveCoeff ) // Add the convective term
 );
 TEqn.relax();
 TEqn.solve();
